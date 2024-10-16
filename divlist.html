@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Aadarsh Builds List with Divs</title> 
+  <style>
+    .flex-container {
+      display: flex;  
+      flex-direction: row;
+      background-color: red;
+    }
+
+    .flex-container > div { 
+      background-color: #f1f1f1; 
+      margin: 10px;  
+      padding: 20px;  
+      font-size: 30px;
+    }
+
+    @media (max-width: 600px) { 
+      .flex-container {
+        flex-direction: column;
+        background-color: green;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Aadarsh Builds List with Divs</h2> 
+
+  <p>Press the button to create a new element of type div and then add it to the container.</p>
+
+  <div><input type="text" id="inputValue" placeholder="Enter item text"></div>
+
+  <div><button onclick="addEnd()">Add End</button></div>
+
+  <div><button onclick="addFront()">Add Front</button></div>
+
+  <div><button onclick="remove()">Remove</button></div>
+
+  <div class="flex-container" id="target">
+    <div class="divlist">Row item 1</div>   
+    <div class="divlist">Row item 2</div>  
+    <div class="divlist">Row item 3</div>  
+  </div>
+
+
+
+  <script>
+    function addEnd() {
+      let value = document.getElementById('inputValue').value; 
+      if (value === "") return;
+
+      let element = document.createElement("div"); 
+      element.innerHTML = value;
+      element.className = "divlist"; 
+
+      let container = document.getElementById('target'); 
+      container.appendChild(element); 
+    }
+
+    function addFront() {
+      let value = document.getElementById('inputValue').value; 
+      if (value === "") return;
+
+      let element = document.createElement("div"); 
+      element.innerHTML = value; 
+      element.className = "divlist";
+
+      let container = document.getElementById('target'); 
+      container.insertBefore(element, container.firstChild); 
+    }
+
+    function remove() {
+      let divListItems = document.getElementsByClassName("divlist"); 
+      let length = divListItems.length;
+      if (length > 0) {
+        let middleIndex = Math.floor(length / 2); 
+        divListItems[middleIndex].remove();
+      }
+    }
+  </script>
+<button onclick="swap()">Swap</button>
+
+<script>
+  function swap() {
+    let divListItems = document.getElementsByClassName("divlist");
+    if (divListItems.length < 2) return; 
+
+    let index1 = Math.floor(Math.random() * divListItems.length);
+    let index2;
+
+    do {
+      index2 = Math.floor(Math.random() * divListItems.length);
+    } while (index1 === index2);
+
+    let item1 = divListItems[index1];
+    let item2 = divListItems[index2];
+
+    let container = document.getElementById('target');
+    
+    item1.remove();
+    item2.remove();
+    
+    if (index1 < index2) {
+      container.insertBefore(item1, divListItems[index2]);
+      container.insertBefore(item2, divListItems[index1]);
+    } else {
+      container.insertBefore(item2, divListItems[index1]);
+      container.insertBefore(item1, divListItems[index2]);
+    }
+  }
+</script>
+
+</body>
+</html>
