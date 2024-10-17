@@ -5,5 +5,9 @@ Assignment 7 on DOM
 
 
 Hosted at [Safari Game](https://44-563-webapps-f24.github.io/44563-webapps-f24-assignment7-aadarsh1-prog/safari.html)  
+
+
 [divlist ](https://44-563-webapps-f24.github.io/44563-webapps-f24-assignment7-aadarsh1-prog/divlist.html) 
+
+
 [precision ](https://44-563-webapps-f24.github.io/44563-webapps-f24-assignment7-aadarsh1-prog/precision.html)
